@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Calculator</title>
+
+```
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Splash Screen -->
+<div class="splash" id="splash">
+    <div class="logo">Smart Calculator</div>
+    <div class="loading">Opening app...</div>
+</div>
+
+<!-- Main App -->
+<main class="container hidden" id="mainApp">
+
+    <h1>Smart Calculator</h1>
+
+    <p class="subtitle">
+        Fast • Simple • Smart • Camera • Scientific
+    </p>
+
+    <div id="dateTime">Loading date and time...</div>
+
+    <!-- Navigation -->
+    <div class="topbar">
+        <button class="tabbtn active" id="calculatorBtn">
+            Calculator
+        </button>
+
+        <button class="tabbtn" id="cameraBtn">
+            Camera Scanner
+        </button>
+
+        <button class="tabbtn" id="scientificBtn">
+            Scientific Calculator
+        </button>
+
+        <button class="tabbtn themebtn" id="themeBtn">
+            Bright/Dark Mode
+        </button>
+    </div>
+
+    <div class="layout">
+
+        <!-- Calculator Panel -->
+        <section class="panel" id="calcTab">
+
+            <div class="display">
+                <div id="previous"></div>
+                <div id="display">0</div>
+            </div>
+
+            <div class="buttons">
+
+                <button class="clear" id="clearBtn">AC</button>
+                <button class="delete" id="deleteBtn">⌫</button>
+                <button class="operator" id="percentBtn">%</button>
+                <button class="operator" data-operator="/">÷</button>
+
+                <button data-number="7">7</button>
+                <button data-number="8">8</button>
+                <button data-number="9">9</button>
+                <button class="operator" data-operator="*">×</button>
+
+                <button data-number="4">4</button>
+                <button data-number="5">5</button>
+                <button data-number="6">6</button>
+                <button class="operator" data-operator="-">−</button>
+
+                <button data-number="1">1</button>
+                <button data-number="2">2</button>
+                <button data-number="3">3</button>
+                <button class="operator" data-operator="+">+</button>
+
+                <button class="zero" data-number="0">0</button>
+                <button id="decimalBtn">.</button>
+                <button class="equals" id="equalsBtn">=</button>
+
+            </div>
+
+            <!-- Scientific Buttons -->
+            <div class="scientific-box" id="scientificBox">
+
+                <button class="operator" data-scientific="sqrt">√x</button>
+                <button class="operator" data-scientific="square">x²</button>
+                <button class="operator" data-scientific="power">xʸ</button>
+                <button class="operator" data-scientific="inverse">1/x</button>
+
+                <button class="operator" data-scientific="sin">sin</button>
+                <button class="operator" data-scientific="cos">cos</button>
+                <button class="operator" data-scientific="tan">tan</button>
+                <button class="operator" data-scientific="log">log</button>
+
+                <button class="operator" data-scientific="ln">ln</button>
+                <button class="operator" data-scientific="pi">π</button>
+                <button class="operator" data-scientific="e">e</button>
+                <button class="operator" data-scientific="factorial">n!</button>
+
+                <button class="operator" data-scientific="abs">abs</button>
+                <button class="operator" data-scientific="rand">rand</button>
+
+            </div>
+
+            <!-- History -->
+            <div class="history">
+
+                <h2>Calculation History</h2>
+
+                <ul id="historyList">
+                    <li class="empty">No calculations yet.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- Camera Panel -->
+        <section class="panel hidden" id="cameraTab">
+
+            <div class="section-title">
+                Camera Scanner
+            </div>
+
+            <div class="camera-box">
+
+                <div class="status" id="cameraStatus">
+                    Camera is off.
+                </div>
+
+                <video id="cameraPreview"
+                       autoplay
+                       playsinline
+                       muted>
+                </video>
+
+                <div class="minirow">
+
+                    <button class="operator" id="startCameraBtn">
+                        Start Camera
+                    </button>
+
+                    <button class="clear" id="stopCameraBtn">
+                        Stop Camera
+                    </button>
+
+                    <button class="equals" id="captureBtn">
+                        Capture
+                    </button>
+
+                </div>
+
+                <canvas id="captureCanvas" class="hidden"></canvas>
+
+                <input
+                    id="ocrInput"
+                    type="text"
+                    placeholder="Enter expression, example: 12+8*3"
+                >
+
+                <input
+                    id="imageUpload"
+                    type="file"
+                    accept="image/*"
+                >
+
+                <textarea
+                    id="ocrText"
+                    placeholder="Captured/uploaded image information will appear here..."
+                ></textarea>
+
+                <div class="minirow">
+
+                    <button class="operator" id="useExpressionBtn">
+                        Use as Expression
+                    </button>
+
+                    <button class="equals" id="evaluateBtn">
+                        Evaluate
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+```
+
+</body>
+</html>
